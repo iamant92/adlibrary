@@ -43,3 +43,16 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"]) // Ensure "release" is used
+
+                groupId = "com.github.iamant92"
+                artifactId = "adlibrary"
+                version = "1.4"
+            }
+        }
+    }
+}
